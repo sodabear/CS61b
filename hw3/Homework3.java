@@ -21,6 +21,26 @@ public class Homework3 {
   public static void smoosh(int[] ints) {
     // Fill in your solution here.  (Ours is twelve lines long, not counting
     // blank lines or lines already present in this file.)
+    /**
+    *  var++ is the value of the variable before incrementing, 
+    *  whereas the result returned by ++var is the value of the variable after the increment is applied.
+    *
+    **/
+    int pre = 0, cur = 1;
+    while (cur < ints.length){
+      if(ints[cur] == ints[pre]){
+        cur++;     //if equal only move the current pointer
+      }else{
+        pre++;
+        ints[pre] = ints[cur]; // swap the cloest dupliate with current pointer
+        cur++;
+      }
+    }
+
+    for(++pre;pre<ints.length;pre++){
+      ints[pre] = -1; // filling the hole 
+    }  
+
   }
 
   /**
@@ -45,8 +65,13 @@ public class Homework3 {
   public static void main(String[] args) {
     String result;
     int i;
-
-
+    //System.out.println("pre-testing smoosh function\n");
+    //int[] test0 = { 0, 0, 0, 0, 1, 1};
+    //smoosh(test0);
+    //result = stringInts(test0);
+    //System.out.println(result);
+    
+    //System.exit(0);
     System.out.println("Let's smoosh arrays!\n");
 
     int[] test1 = {3, 7, 7, 7, 4, 5, 5, 2, 0, 8, 8, 8, 8, 5};
@@ -83,7 +108,7 @@ public class Homework3 {
     TestHelper.verify(result.equals("[  0  1  2  3  4  5  6  ]"),
                       "BAD SMOOSH!!!  No cookie.");
 
-
+    //System.exit(0);
     System.out.println("\nLet's squish linked lists!\n");
 
     int[] test5 = {3, 7, 7, 7, 4, 5, 5, 2, 0, 8, 8, 8, 8, 5};
@@ -142,7 +167,7 @@ public class Homework3 {
     TestHelper.verify(result.equals("[  ]"),
                       "BAD SQUISH!!!  No biscuit.");
 
-
+    //System.exit(0);
     System.out.println("\nLet's twin linked lists!\n");
 
     System.out.println("twinning " + list6.toString() + ":");
